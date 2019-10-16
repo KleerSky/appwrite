@@ -2,6 +2,7 @@ CREATE DATABASE IF NOT EXISTS `appwrite` /*!40100 DEFAULT CHARACTER SET utf8mb4 
 
 USE `appwrite`;
 
+/* Abuse Table */
 CREATE TABLE IF NOT EXISTS `template.abuse.abuse` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `_key` varchar(255) NOT NULL,
@@ -12,6 +13,7 @@ CREATE TABLE IF NOT EXISTS `template.abuse.abuse` (
   KEY `index1` (`_key`,`_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+/* Audit Table */
 CREATE TABLE IF NOT EXISTS `template.audit.audit` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` varchar(45) NOT NULL,
@@ -30,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `template.audit.audit` (
   KEY `index_3` (`resource`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+/* DB Documents Table */
 CREATE TABLE IF NOT EXISTS `template.database.documents` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique ID for each node',
   `uid` varchar(45) DEFAULT NULL,
@@ -45,6 +48,7 @@ CREATE TABLE IF NOT EXISTS `template.database.documents` (
   KEY `index3` (`signature`,`uid`,`revision`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+/* DB Properties Table */
 CREATE TABLE IF NOT EXISTS `template.database.properties` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
   `documentUid` varchar(45) NOT NULL COMMENT 'Unique UID foreign key',
@@ -60,6 +64,7 @@ CREATE TABLE IF NOT EXISTS `template.database.properties` (
   FULLTEXT KEY `index3` (`value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+/* DB Relationships Table */
 CREATE TABLE IF NOT EXISTS `template.database.relationships` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `revision` varchar(45) NOT NULL,
